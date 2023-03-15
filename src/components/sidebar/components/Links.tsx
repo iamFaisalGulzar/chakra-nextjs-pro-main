@@ -1,4 +1,4 @@
-'use client'
+'use client';
 /* eslint-disable */
 
 // chakra imports
@@ -21,8 +21,8 @@ import {
 import { FaCircle } from 'react-icons/fa';
 import NavLink from 'components/link/NavLink';
 import { IRoute } from 'types/navigation';
-import {PropsWithChildren, useCallback} from 'react';
-import {usePathname} from "next/navigation";
+import { PropsWithChildren, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 
 interface SidebarLinksProps extends PropsWithChildren {
   routes: IRoute[];
@@ -30,7 +30,7 @@ interface SidebarLinksProps extends PropsWithChildren {
 
 export function SidebarLinks(props: SidebarLinksProps) {
   //   Chakra color mode
-  const pathname = usePathname()
+  const pathname = usePathname();
   let activeColor = useColorModeValue('gray.700', 'white');
   let inactiveColor = useColorModeValue(
     'secondaryGray.600',
@@ -41,9 +41,12 @@ export function SidebarLinks(props: SidebarLinksProps) {
   const { routes } = props;
 
   // verifies if routeName is the one active (in browser input)
-  const activeRoute = useCallback((routeName: string) => {
-    return pathname?.includes(routeName);
-  }, [pathname]);
+  const activeRoute = useCallback(
+    (routeName: string) => {
+      return pathname?.includes(routeName);
+    },
+    [pathname]
+  );
 
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes: IRoute[]) => {
@@ -134,6 +137,7 @@ export function SidebarLinks(props: SidebarLinksProps) {
                         }
                         fontWeight="500"
                         fontSize="sm"
+                        textAlign="start"
                       >
                         {route.name}
                       </Text>
@@ -229,7 +233,7 @@ export function SidebarLinks(props: SidebarLinksProps) {
   };
   // this function creates the links from the secondary accordions (for example auth -> sign-in -> default)
   const createAccordionLinks = (routes: IRoute[]) => {
-    return routes.map((route: IRoute, key: number) => {
+    return routes?.map((route: IRoute, key: number) => {
       return (
         <NavLink href={route.layout + route.path} key={key}>
           <ListItem

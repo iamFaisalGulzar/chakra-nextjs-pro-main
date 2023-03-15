@@ -37,7 +37,7 @@ import ProfitEstimation from '../../../../components/admin/dashboards/default/Pr
 import Card from 'components/card/Card';
 import React from 'react';
 
-export default function Page() {
+export default function QualityToLive() {
   // Chakra Color Mode
   const paleGray = useColorModeValue('secondaryGray.400', 'whiteAlpha.100');
   return (

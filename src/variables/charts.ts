@@ -18,10 +18,10 @@ export const lineChartOptionsSidebar = {
     },
   },
   markers: {
-    size: 0,
-    colors: '#868CFF',
+    size: 10,
+    colors: 'black',
     strokeColors: 'white',
-    strokeWidth: 2,
+    strokeWidth: 4,
     strokeOpacity: 0.9,
     strokeDashArray: 0,
     fillOpacity: 1,
@@ -119,6 +119,10 @@ export const lineChartDataOverallRevenue = [
     name: 'Profit',
     data: [30, 40, 24, 46, 20, 46],
   },
+  {
+    name: 'faisal',
+    data: [40, 12, 19, 56, 44, 10],
+  },
 ];
 
 export const lineChartOptionsOverallRevenue = {
@@ -135,12 +139,12 @@ export const lineChartOptionsOverallRevenue = {
       color: '#4318FF',
     },
   },
-  colors: ['#4318FF', '#39B8FF'],
+  colors: ['#4318FF', '#39B8FF', '#FF2D00'],
   markers: {
-    size: 0,
-    colors: 'white',
+    size: 5,
+    colors: 'black',
     strokeColors: '#7551FF',
-    strokeWidth: 3,
+    strokeWidth: 4,
     strokeOpacity: 0.9,
     strokeDashArray: 0,
     fillOpacity: 1,

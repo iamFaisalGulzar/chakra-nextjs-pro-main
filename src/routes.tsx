@@ -41,7 +41,7 @@ const routes: IRoute[] = [
   },
   // // --- NFTs ---
   {
-    name: 'NFTs',
+    name: 'Economic Growth',
     path: '/nfts',
     icon: (
       <Icon
@@ -81,7 +81,7 @@ const routes: IRoute[] = [
   },
   // // --- Main pages ---
   {
-    name: 'Main Pages',
+    name: 'Monetary Stability',
     path: '/main',
     icon: <Icon as={MdDashboard} width="20px" height="20px" color="inherit" />,
     collapse: true,
@@ -274,102 +274,32 @@ const routes: IRoute[] = [
       },
     ],
   },
-  // --- Authentication ---
+  // --- Quality of live ---
   {
-    name: 'Authentication',
-    path: '/auth',
+    name: 'Quality of live',
+    path: '/quality-of-live',
     icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
     collapse: true,
     items: [
-      // --- Sign In ---
       {
-        name: 'Sign In',
-        path: '/sign-in',
-        collapse: true,
-        items: [
-          {
-            name: 'Default',
-            layout: '/auth',
-            path: '/sign-in/default',
-          },
-          {
-            name: 'Centered',
-            layout: '/auth',
-            path: '/sign-in/centered',
-          },
-        ],
+        name: 'Livability & Lifestyle ​',
+        layout: '/admin',
+        path: '/dashboards/quality-of-live',
       },
       // --- Sign Up ---
       {
-        name: 'Sign Up',
-        path: '/sign-up',
-        collapse: true,
-        items: [
-          {
-            name: 'Default',
-            layout: '/auth',
-            path: '/sign-up/default',
-          },
-          {
-            name: 'Centered',
-            layout: '/auth',
-            path: '/sign-up/centered',
-          },
-        ],
+        name: 'Housing',
+        path: '/housing',
       },
       // --- Verification ---
       {
-        name: 'Verification',
+        name: 'Security',
         path: '/verification',
-        collapse: true,
-        items: [
-          {
-            name: 'Default',
-            layout: '/auth',
-            path: '/verification/default',
-          },
-          {
-            name: 'Centered',
-            layout: '/auth',
-            path: '/verification/centered',
-          },
-        ],
       },
       // --- Lock ---
       {
-        name: 'Lock',
+        name: 'Infrastructure & Transport',
         path: '/lock',
-        collapse: true,
-        items: [
-          {
-            name: 'Default',
-            layout: '/auth',
-            path: '/lock/default',
-          },
-          {
-            name: 'Centered',
-            layout: '/auth',
-            path: '/lock/centered',
-          },
-        ],
-      },
-      // --- Forgot Password ---
-      {
-        name: 'Forgot Password',
-        path: '/forgot-password',
-        collapse: true,
-        items: [
-          {
-            name: 'Default',
-            layout: '/auth',
-            path: '/forgot-password/default',
-          },
-          {
-            name: 'Centered',
-            layout: '/auth',
-            path: '/forgot-password/centered',
-          },
-        ],
       },
     ],
   },

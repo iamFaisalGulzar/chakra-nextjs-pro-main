@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { Button, Flex, Text, useColorModeValue } from '@chakra-ui/react';
 import { NextAvatar } from 'components/image/Avatar';
 import Link from 'components/link/Link';
@@ -24,7 +24,7 @@ export default function Comment(props: {
         w="50px"
         h="50px"
         me="15px"
-        style={{ flexShrink: '0' }}
+        style={{ flexShrink: 0 }}
       />
       <Flex direction="column">
         <Text color={textColor} fontWeight="400" fontSize="md" mt="6px">

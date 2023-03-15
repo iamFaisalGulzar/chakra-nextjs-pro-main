@@ -1,4 +1,4 @@
-'use client'
+'use client';
 // Chakra imports
 import {
   Flex,
