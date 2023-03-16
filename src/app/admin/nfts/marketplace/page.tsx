@@ -1,4 +1,4 @@
-'use client'
+'use client';
 /*!
   _   _  ___  ____  ___ ________  _   _   _   _ ___   ____  ____   ___  
  | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| |  _ \|  _ \ / _ \ 
@@ -30,6 +30,7 @@ import {
   Text,
   useColorModeValue,
   SimpleGrid,
+  Circle,
 } from '@chakra-ui/react';
 import Link from 'components/link/Link';
 
@@ -52,6 +53,12 @@ import Avatar2 from '/public/img/avatars/avatar2.png';
 import Avatar3 from '/public/img/avatars/avatar3.png';
 import Avatar4 from '/public/img/avatars/avatar4.png';
 import tableDataTopCreators from 'variables/nfts/marketplace/tableDataTopCreators';
+import { PhoneIcon } from '@chakra-ui/icons';
+import Image from 'next/image';
+
+import outOfTargetIcon from '/public/img/icons/outOfTargetIcon.png';
+import targetIcon from '/public/img/icons/targetIcon.png';
+import totalProjectsIcon from '/public/img/icons/totalProjectsIcon.png';
 
 export default function Marketplace() {
   // Chakra Color Mode
@@ -62,250 +69,348 @@ export default function Marketplace() {
       {/* Main Fields */}
       <Grid
         mb="20px"
-        gridTemplateColumns={{ xl: 'repeat(3, 1fr)', '2xl': '1fr 0.46fr' }}
-        gap={{ base: '20px', xl: '20px' }}
+        gridTemplateColumns={{ xl: 'repeat(5, 1fr)', '2xl': '1fr' }}
+        gap={{ base: '30px', xl: '40px' }}
         display={{ base: 'block', xl: 'grid' }}
       >
         <Flex
           flexDirection="column"
-          gridArea={{ xl: '1 / 1 / 2 / 3', '2xl': '1 / 1 / 2 / 2' }}
+          // gridArea={{ xl: '1 / 1 / 2 / 3', '2xl': '1 / 1 / 2 / 2' }}
         >
-          <Banner />
+          <Flex marginY={'20px'} width={'max-content'} flexWrap={'wrap'}>
+            <Card
+              display={'flex'}
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+              width={'248px'}
+              height={'97px'}
+              marginRight={'20px'}
+            >
+              <Image src={targetIcon} alt="total Projects" />
+              <Box
+                display={'flex'}
+                flexDirection={'column'}
+                alignItems={'center'}
+              >
+                <Text
+                  display={'inline'}
+                  width={'max-content'}
+                  fontSize={'14px'}
+                  color={'#A3AED0'}
+                >
+                  Meeting targets
+                </Text>
+                <Text
+                  display={'inline'}
+                  width={'max-content'}
+                  fontSize={'24px'}
+                  fontWeight={'700'}
+                  color={'#009150'}
+                >
+                  08
+                </Text>
+              </Box>
+            </Card>
+            <Card
+              display={'flex'}
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+              width={'248px'}
+              height={'97px'}
+              marginRight={'20px'}
+            >
+              <Image src={outOfTargetIcon} alt="total Projects" />
+              <Box
+                display={'flex'}
+                flexDirection={'column'}
+                alignItems={'center'}
+              >
+                <Text
+                  display={'inline'}
+                  width={'max-content'}
+                  fontSize={'14px'}
+                  color={'#A3AED0'}
+                >
+                  Under-Performing
+                </Text>
+                <Text
+                  display={'inline'}
+                  width={'max-content'}
+                  fontSize={'24px'}
+                  fontWeight={'700'}
+                  color={'#FEB202'}
+                >
+                  12
+                </Text>
+              </Box>
+            </Card>
+            <Card
+              display={'flex'}
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+              width={'248px'}
+              height={'97px'}
+              marginRight={'20px'}
+            >
+              <Image src={totalProjectsIcon} alt="total Projects" />
+              <Box
+                display={'flex'}
+                flexDirection={'column'}
+                alignItems={'center'}
+              >
+                <Text
+                  display={'inline'}
+                  width={'max-content'}
+                  fontSize={'14px'}
+                  color={'#A3AED0'}
+                >
+                  Significantly underPerforming
+                </Text>
+                <Text
+                  display={'inline'}
+                  width={'max-content'}
+                  fontSize={'24px'}
+                  fontWeight={'700'}
+                  color={'#D7371C'}
+                >
+                  02
+                </Text>
+              </Box>
+            </Card>
+            <Card
+              display={'flex'}
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+              width={'248px'}
+              height={'97px'}
+              marginRight={'20px'}
+            >
+              <Image src={totalProjectsIcon} alt="total Projects" />
+              <Box
+                display={'flex'}
+                flexDirection={'column'}
+                alignItems={'center'}
+              >
+                <Text
+                  display={'inline'}
+                  width={'max-content'}
+                  fontSize={'14px'}
+                  color={'#A3AED0'}
+                >
+                  Unmeasurable
+                </Text>
+                <Text
+                  display={'inline'}
+                  width={'max-content'}
+                  fontSize={'24px'}
+                  fontWeight={'700'}
+                  color={'#808080'}
+                >
+                  27
+                </Text>
+              </Box>
+            </Card>
+          </Flex>
           <Flex direction="column">
-            <Flex
-              mt="45px"
-              mb="20px"
-              justifyContent="space-between"
-              direction={{ base: 'column', md: 'row' }}
-              align={{ base: 'start', md: 'center' }}
-            >
-              <Text
-                color={textColor}
-                fontSize="2xl"
-                ms="24px"
-                fontWeight="700"
-              >
-                Trending NFTs
-              </Text>
-              <Flex
-                align="center"
-                me="20px"
-                ms={{ base: '24px', md: '0px' }}
-                mt={{ base: '20px', md: '0px' }}
-              >
-                <Link
-                  color={textColorBrand}
-                  fontWeight="500"
-                  me={{ base: '34px', md: '44px' }}
-                  href={''}
-                >
-                  Art
-                </Link>
-                <Link
-                  href={''}
-                  color={textColorBrand}
-                  me={{ base: '34px', md: '44px' }}>
-                  Music
-                </Link>
-                <Link
-                  color={textColorBrand}
-                  fontWeight="500"
-                  me={{ base: '34px', md: '44px' }}
-                  href="/admin/nfts#collectibles"
-                >
-                  Collectibles
-                </Link>
-                <Link color={textColorBrand} fontWeight="500" href="/admin/nfts#sports">
-                  Sports
-                </Link>
-              </Flex>
-            </Flex>
-            <SimpleGrid columns={{ base: 1, md: 3 }} gap="20px">
-              <NFT
-                name="Abstract Colors"
-                author="By Esthera Jackson"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft1}
-                currentbid="0.91 ETH"
-                download="#"
-              />
-              <NFT
-                name="ETH AI Brain"
-                author="By Nick Wilson"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft2}
-                currentbid="0.91 ETH"
-                download="#"
-              />
-              <NFT
-                name="Mesh Gradients "
-                author="By Will Smith"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft3}
-                currentbid="0.91 ETH"
-                download="#"
-              />
-            </SimpleGrid>
-            <Text
-              mt="45px"
-              mb="36px"
-              color={textColor}
-              fontSize="2xl"
-              ms="24px"
-              fontWeight="700"
-            >
-              Recently Added
-            </Text>
             <SimpleGrid
-              columns={{ base: 1, md: 3 }}
+              columns={{ base: 1, md: 5 }}
               gap="20px"
               mb={{ base: '20px', xl: '0px' }}
             >
-              <NFT
-                name="Swipe Circles"
-                author="By Peter Will"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft4}
-                currentbid="0.91 ETH"
-                download="#"
-              />
-              <NFT
-                name="Colorful Heaven"
-                author="By Mark Benjamin"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft5}
-                currentbid="0.91 ETH"
-                download="#"
-              />
-              <NFT
-                name="3D Cubes Art"
-                author="By Manny Gates"
-                bidders={[
-                  Avatar1,
-                  Avatar2,
-                  Avatar3,
-                  Avatar4,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                  Avatar1,
-                ]}
-                image={Nft6}
-                currentbid="0.91 ETH"
-                download="#"
-              />
+              <Card width={'300px'} height={'189px'}>
+                <Flex justifyContent={'space-between'}>
+                  <Flex flexDirection={'column'} textAlign="center">
+                    <Text
+                      fontSize={15}
+                      fontWeight={600}
+                      marginBottom="32px"
+                      color={'#1E1E1E'}
+                    >
+                      Livability of citizen Cities
+                    </Text>
+                    <Text
+                      fontWeight={700}
+                      fontSize={60}
+                      lineHeight="30px"
+                      color={'#1E1E1E'}
+                    >
+                      60%
+                    </Text>
+                    <Text
+                      fontWeight={500}
+                      fontSize={16}
+                      marginTop="32px"
+                      color={'#A3AED0'}
+                    >
+                      Target(2022) : 65%
+                    </Text>
+                  </Flex>
+                  <Flex flexDirection="column" textAlign={'center'}>
+                    <Text>91%</Text>
+                    <Box
+                      width={'20px'}
+                      height={'111px'}
+                      backgroundColor={'lightgray'}
+                      borderRadius={'40px'}
+                      display={'flex'}
+                      alignItems={'flex-end'}
+                      overflow={'hidden'}
+                    >
+                      <Box
+                        width={'100%'}
+                        height={'91%'}
+                        backgroundColor={'#009150'}
+                      ></Box>
+                    </Box>
+                  </Flex>
+                </Flex>
+              </Card>
+              <Card width={'300px'} height={'189px'}>
+                <Flex justifyContent={'space-between'}>
+                  <Flex flexDirection={'column'} textAlign="center">
+                    <Text
+                      fontSize={15}
+                      fontWeight={600}
+                      marginBottom="32px"
+                      color={'#1E1E1E'}
+                    >
+                      Human Dvpt Index
+                    </Text>
+                    <Text
+                      fontWeight={700}
+                      fontSize={60}
+                      lineHeight="30px"
+                      color={'#1E1E1E'}
+                    >
+                      60%
+                    </Text>
+                    <Text
+                      fontWeight={500}
+                      fontSize={16}
+                      marginTop="32px"
+                      color={'#A3AED0'}
+                    >
+                      Target(2022) : 65%
+                    </Text>
+                  </Flex>
+                  <Flex flexDirection="column" textAlign={'center'}>
+                    <Text>60%</Text>
+                    <Box
+                      width={'20px'}
+                      height={'111px'}
+                      backgroundColor={'lightgray'}
+                      borderRadius={'40px'}
+                      display={'flex'}
+                      alignItems={'flex-end'}
+                      overflow={'hidden'}
+                    >
+                      <Box
+                        width={'100%'}
+                        height={'60%'}
+                        backgroundColor={'#FEB202'}
+                      ></Box>
+                    </Box>
+                  </Flex>
+                </Flex>
+              </Card>
+              <Card width={'300px'} height={'189px'}>
+                <Flex justifyContent={'space-between'}>
+                  <Flex flexDirection={'column'} textAlign="center">
+                    <Text
+                      fontSize={15}
+                      fontWeight={600}
+                      marginBottom="32px"
+                      color={'#1E1E1E'}
+                    >
+                      Overnight Visit
+                    </Text>
+                    <Text
+                      fontWeight={700}
+                      fontSize={60}
+                      lineHeight="30px"
+                      color={'#1E1E1E'}
+                    >
+                      20%
+                    </Text>
+                    <Text
+                      fontWeight={500}
+                      fontSize={16}
+                      marginTop="32px"
+                      color={'#A3AED0'}
+                    >
+                      Target(2022) : 65%
+                    </Text>
+                  </Flex>
+                  <Flex flexDirection="column" textAlign={'center'}>
+                    <Text>80%</Text>
+                    <Box
+                      width={'20px'}
+                      height={'111px'}
+                      backgroundColor={'lightgray'}
+                      borderRadius={'40px'}
+                      display={'flex'}
+                      alignItems={'flex-end'}
+                      overflow={'hidden'}
+                    >
+                      <Box
+                        width={'100%'}
+                        height={'80%'}
+                        backgroundColor={'#009150'}
+                      ></Box>
+                    </Box>
+                  </Flex>
+                </Flex>
+              </Card>
+              <Card width={'300px'} height={'189px'}>
+                <Flex justifyContent={'space-between'}>
+                  <Flex flexDirection={'column'} textAlign="center">
+                    <Text
+                      fontSize={15}
+                      fontWeight={600}
+                      marginBottom="32px"
+                      color={'#1E1E1E'}
+                    >
+                      Unemployment Rate
+                    </Text>
+                    <Text
+                      fontWeight={700}
+                      fontSize={60}
+                      lineHeight="30px"
+                      color={'#1E1E1E'}
+                    >
+                      9.9%
+                    </Text>
+                    <Text
+                      fontWeight={500}
+                      fontSize={16}
+                      marginTop="32px"
+                      color={'#A3AED0'}
+                    >
+                      Target(2022) : 5%
+                    </Text>
+                  </Flex>
+                  <Flex flexDirection="column" textAlign={'center'}>
+                    <Text>85%</Text>
+                    <Box
+                      width={'20px'}
+                      height={'111px'}
+                      backgroundColor={'lightgray'}
+                      borderRadius={'40px'}
+                      display={'flex'}
+                      alignItems={'flex-end'}
+                      overflow={'hidden'}
+                    >
+                      <Box
+                        width={'100%'}
+                        height={'85%'}
+                        backgroundColor={'#D7371C'}
+                      ></Box>
+                    </Box>
+                  </Flex>
+                </Flex>
+              </Card>
             </SimpleGrid>
           </Flex>
-        </Flex>
-        <Flex
-          flexDirection="column"
-          gridArea={{ xl: '1 / 3 / 2 / 4', '2xl': '1 / 2 / 2 / 3' }}
-        >
-          <Card px="0px" mb="20px">
-            <TableTopCreators tableData={tableDataTopCreators} />
-          </Card>
-          <Card p="0px">
-            <Flex
-              align={{ sm: 'flex-start', lg: 'center' }}
-              justify="space-between"
-              w="100%"
-              px="22px"
-              py="18px"
-            >
-              <Text color={textColor} fontSize="xl" fontWeight="600">
-                History
-              </Text>
-              <Button variant="action">See all</Button>
-            </Flex>
-
-            <HistoryItem
-              name="Colorful Heaven"
-              author="By Mark Benjamin"
-              date="30s ago"
-              image={Nft5}
-              price="0.91 ETH"
-            />
-            <HistoryItem
-              name="Abstract Colors"
-              author="By Esthera Jackson"
-              date="58s ago"
-              image={Nft1}
-              price="0.91 ETH"
-            />
-            <HistoryItem
-              name="ETH AI Brain"
-              author="By Nick Wilson"
-              date="1m ago"
-              image={Nft2}
-              price="0.91 ETH"
-            />
-            <HistoryItem
-              name="Swipe Circles"
-              author="By Peter Will"
-              date="1m ago"
-              image={Nft4}
-              price="0.91 ETH"
-            />
-            <HistoryItem
-              name="Mesh Gradients "
-              author="By Will Smith"
-              date="2m ago"
-              image={Nft3}
-              price="0.91 ETH"
-            />
-            <HistoryItem
-              name="3D Cubes Art"
-              author="By Manny Gates"
-              date="3m ago"
-              image={Nft6}
-              price="0.91 ETH"
-            />
-          </Card>
         </Flex>
       </Grid>
       {/* Delete Product */}
