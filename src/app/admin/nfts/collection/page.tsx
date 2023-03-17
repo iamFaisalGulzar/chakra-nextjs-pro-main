@@ -1,4 +1,4 @@
-'use client'
+'use client';
 /*!
   _   _  ___  ____  ___ ________  _   _   _   _ ___   ____  ____   ___  
  | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| |  _ \|  _ \ / _ \ 
@@ -23,272 +23,1098 @@
 
 // Chakra imports
 import {
-  Box,
-  Button,
-  Flex,
-  Icon,
   Text,
-  useColorModeValue,
-  SimpleGrid,
-  Select,
-  AspectRatio,
+  GridItem,
+  Grid,
+  CircularProgress,
+  CircularProgressLabel,
+  Flex,
 } from '@chakra-ui/react';
 
-// Custom components
-import Banner from 'components/admin/nfts/collection/Banner';
-import NFT from 'components/card/NFT';
-import { SearchBar } from 'components/admin/nfts/collection/Search';
+import Card from 'components/card/Card';
 
-// Assets
-import Nft2 from '/public/img/nfts/Nft2.png';
-import Nft4 from '/public/img/nfts/Nft4.png';
-import Nft5 from '/public/img/nfts/Nft5.png';
-import Nft6 from '/public/img/nfts/Nft6.png';
-import NftProfile from '/public/img/nfts/NftProfile.png';
-import NftBanner2 from '/public/img/nfts/NftBanner2.png';
-import Avatar1 from '/public/img/avatars/avatar1.png';
-import Avatar2 from '/public/img/avatars/avatar2.png';
-import Avatar3 from '/public/img/avatars/avatar3.png';
-import Avatar4 from '/public/img/avatars/avatar4.png';
-
-import { MdDashboard, MdApps } from 'react-icons/md';
 export default function Collection() {
-  const textColor = useColorModeValue('secondaryGray.900', 'white');
-  const buttonBg = useColorModeValue('transparent', 'navy.800');
-  const hoverButton = useColorModeValue(
-    { bg: 'gray.100' },
-    { bg: 'whiteAlpha.100' }
-  );
-  const activeButton = useColorModeValue(
-    { bg: 'gray.200' },
-    { bg: 'whiteAlpha.200' }
-  );
-  // Chakra Color Mode
   return (
-    <Box pt={{ base: '180px', md: '80px', xl: '80px' }}>
-      {/* Main Fields */}
-      <Box mb="20px" display={{ base: 'block', lg: 'grid' }}>
-        <Flex flexDirection="column">
-          <Banner
-            image={NftBanner2}
-            profile={NftProfile}
-            creator="simmmple.web"
-            name="Abstractus®"
-            desc="The Abstractus® project is an online art show and the First Art NFTs on Ethereum, launched on May 9, 2017. Abstractus® features 28 unique series of cards from 7 different artists. Abstractus® are referenced with CryptoAbstractus® and Crypto in the original ERC-721 Non-Fungible Token Standard, and pre-dates them both. Join the Abstractus® Discord and check out theAbstractus® Docs to find out more."
-            floor={0.56}
-            volume={33.8}
-            owners={4.6}
-            items={28}
-          />
-        </Flex>
-      </Box>
-      <Flex w="100%">
-        <SearchBar />
-        <Select
-          fontSize="sm"
-          id="edit_product"
-          variant="main"
-          h="44px"
-          maxH="44px"
-          me={{ base: '10px', md: '20px' }}
-        >
-          <option value="single">Single Items</option>
-          <option value="multiple">Multiple Items</option>
-        </Select>
-        <Select
-          fontSize="sm"
-          variant="main"
-          h="44px"
-          maxH="44px"
-          me={{ base: '10px', md: '20px' }}
-        >
-          <option value="low_to_high">Low to high</option>
-          <option value="high_to_low">High to low</option>
-        </Select>
-        <Button
-          me={{ base: '10px', md: '20px' }}
-          bg={buttonBg}
-          border="1px solid"
-          color="secondaryGray.600"
-          borderColor={useColorModeValue(
-            'secondaryGray.100',
-            'whiteAlpha.100'
-          )}
-          borderRadius="16px"
-          _placeholder={{ color: 'secondaryGray.600' }}
-          _hover={hoverButton}
-          _active={activeButton}
-          _focus={activeButton}
-        >
-          <Icon color={textColor} as={MdDashboard} />
-        </Button>
-        <Button
-          bg={buttonBg}
-          border="1px solid"
-          color="secondaryGray.600"
-          borderColor={useColorModeValue(
-            'secondaryGray.100',
-            'whiteAlpha.100'
-          )}
-          borderRadius="16px"
-          _placeholder={{ color: 'secondaryGray.600' }}
-          _hover={hoverButton}
-          _active={activeButton}
-          _focus={activeButton}
-        >
-          <Icon color={textColor} as={MdApps} />
-        </Button>
-      </Flex>
-      <Text
-        mt="25px"
-        mb="36px"
-        color={textColor}
-        fontSize="2xl"
-        ms="24px"
-        fontWeight="700"
+    <>
+      <Grid
+        pt={{ base: '180px', md: '80px', xl: '80px' }}
+        h="auto"
+        templateRows="repeat(5, 1fr)"
+        templateColumns="repeat(12, 1fr)"
+        gap={4}
       >
-        More from this Collection
-      </Text>
-      <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} gap="20px">
-        <NFT
-          name="Swipe Circles"
-          author="By Peter Will"
-          bidders={[
-            Avatar1,
-            Avatar2,
-            Avatar3,
-            Avatar4,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-          ]}
-          image={Nft4}
-          currentbid="0.91 ETH"
-          download="#"
-        />
-        <NFT
-          name="Colorful Heaven"
-          author="By Mark Benjamin"
-          bidders={[
-            Avatar1,
-            Avatar2,
-            Avatar3,
-            Avatar4,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-          ]}
-          image={Nft5}
-          currentbid="0.91 ETH"
-          download="#"
-        />
-        <NFT
-          name="3D Cubes Art"
-          author="By Manny Gates"
-          bidders={[
-            Avatar1,
-            Avatar2,
-            Avatar3,
-            Avatar4,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-          ]}
-          image={Nft6}
-          currentbid="0.91 ETH"
-          download="#"
-        />
-        <NFT
-          name="ETH AI Brain"
-          author="By Nick Wilson"
-          bidders={[
-            Avatar1,
-            Avatar2,
-            Avatar3,
-            Avatar4,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-          ]}
-          image={Nft2}
-          currentbid="0.91 ETH"
-          download="#"
-        />
-        <NFT
-          name="Swipe Circles"
-          author="By Peter Will"
-          bidders={[
-            Avatar1,
-            Avatar2,
-            Avatar3,
-            Avatar4,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-          ]}
-          image={Nft4}
-          currentbid="0.91 ETH"
-          download="#"
-        />
-        <NFT
-          name="Colorful Heaven"
-          author="By Mark Benjamin"
-          bidders={[
-            Avatar1,
-            Avatar2,
-            Avatar3,
-            Avatar4,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-          ]}
-          image={Nft5}
-          currentbid="0.91 ETH"
-          download="#"
-        />
-        <NFT
-          name="3D Cubes Art"
-          author="By Manny Gates"
-          bidders={[
-            Avatar1,
-            Avatar2,
-            Avatar3,
-            Avatar4,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-          ]}
-          image={Nft6}
-          currentbid="0.91 ETH"
-          download="#"
-        />
-        <NFT
-          name="ETH AI Brain"
-          author="By Nick Wilson"
-          bidders={[
-            Avatar1,
-            Avatar2,
-            Avatar3,
-            Avatar4,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-            Avatar1,
-          ]}
-          image={Nft2}
-          currentbid="0.91 ETH"
-          download="#"
-        />
-      </SimpleGrid>
+        <GridItem colSpan={6} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              GDP & Components
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(5,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                  width={'50px'}
+                >
+                  <CircularProgress value={40} color="#009150">
+                    <CircularProgressLabel>40%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Real GDP Total
+                  </Text>
+                </Flex>
+              </GridItem>
 
-      {/* Delete Product */}
-    </Box>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Investment
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={45} color="#D7371C">
+                    <CircularProgressLabel>45%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Exports Total
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="#009150">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Balance of Trade Total
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Consumption Government
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Consumption Government
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Consumption Government
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Consumption Government
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Consumption Government
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Consumption Government
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={6} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Growth Enablers & Drivers
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(4,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                  width={'50px'}
+                >
+                  <CircularProgress value={40} color="#009150">
+                    <CircularProgressLabel>40%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Productivity
+                  </Text>
+                </Flex>
+              </GridItem>
+
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Population
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={45} color="#D7371C">
+                    <CircularProgressLabel>45%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Local Content SHare
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="#009150">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    RDI Spending
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Investor Confidence
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Economic Complexity Index
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Private sector contribution as % of Real GDP
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={2} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Employment
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(2,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                  width={'50px'}
+                >
+                  <CircularProgress value={40} color="#009150">
+                    <CircularProgressLabel>40%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Productivity
+                  </Text>
+                </Flex>
+              </GridItem>
+
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Population
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={45} color="#D7371C">
+                    <CircularProgressLabel>45%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Local Content SHare
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="#009150">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    RDI Spending
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={4} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Fiscal Balance
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(3,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                  width={'50px'}
+                >
+                  <CircularProgress value={40} color="#009150">
+                    <CircularProgressLabel>40%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Productivity
+                  </Text>
+                </Flex>
+              </GridItem>
+
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Population
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={45} color="#D7371C">
+                    <CircularProgressLabel>45%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Local Content SHare
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="#009150">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    RDI Spending
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="#009150">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    RDI Spending
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={4} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Income
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(2,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                  width={'50px'}
+                >
+                  <CircularProgress value={40} color="#009150">
+                    <CircularProgressLabel>40%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Productivity
+                  </Text>
+                </Flex>
+              </GridItem>
+
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Population
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={45} color="#D7371C">
+                    <CircularProgressLabel>45%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Local Content SHare
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="#009150">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    RDI Spending
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={1} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Debt
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(1,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                  width={'50px'}
+                >
+                  <CircularProgress value={40} color="#009150">
+                    <CircularProgressLabel>40%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Productivity
+                  </Text>
+                </Flex>
+              </GridItem>
+
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Population
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={1} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Reserves
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(1,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                  width={'50px'}
+                >
+                  <CircularProgress value={40} color="#009150">
+                    <CircularProgressLabel>40%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Productivity
+                  </Text>
+                </Flex>
+              </GridItem>
+
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Population
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={2} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Monetary Stability
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(1,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={5} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Housing, Urban & Environment
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(4,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={2} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Infrastructure & Transport
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(2,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={3} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Livability & Lifestyle
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(3,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={4} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Education
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(3,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    KSA Universities in Top 200
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={45} color="#D7371C">
+                    <CircularProgressLabel>45%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Student Perf. in PISA
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={4} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Healthcare
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(2,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+        <GridItem colSpan={4} rowSpan={2}>
+          <Card>
+            <Text
+              fontWeight={'600'}
+              color={'#1E1E1E'}
+              fontSize={'25px'}
+              marginBottom={'22px'}
+            >
+              Security & Gov Effectiveness
+            </Text>
+            <Grid
+              templateRows="repeat(auto, 1fr)"
+              templateColumns="repeat(2,1fr)"
+              flexDirection={'row'}
+              justifyContent={'space-between'}
+            >
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={75} color="#FEB202">
+                    <CircularProgressLabel>75%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Road Mortality
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="green">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+              <GridItem colSpan={1}>
+                <Flex
+                  width={'50px'}
+                  flexDirection={'column'}
+                  alignItems={'center'}
+                >
+                  <CircularProgress value={90} color="#FEB202">
+                    <CircularProgressLabel>90%</CircularProgressLabel>
+                  </CircularProgress>
+                  <Text textAlign={'center'} fontSize={'11px'}>
+                    Inflation
+                  </Text>
+                </Flex>
+              </GridItem>
+            </Grid>
+          </Card>
+        </GridItem>
+      </Grid>
+    </>
   );
 }
