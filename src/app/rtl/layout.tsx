@@ -1,4 +1,4 @@
-'use client'
+'use client';
 // Chakra imports
 import { Portal, Box, useDisclosure } from '@chakra-ui/react';
 import Footer from 'components/footer/FooterAdmin';
@@ -15,15 +15,15 @@ import {
   getActiveRoute,
   isWindowAvailable,
 } from 'utils/navigation';
-import {usePathname} from "next/navigation";
+import { usePathname } from 'next/navigation';
 
 // Custom Chakra theme
-export default function RtlLayout({children}: {children: React.ReactNode}) {
+export default function RtlLayout({ children }: { children: React.ReactNode }) {
   // states and functions
   const [fixed] = useState(false);
   const [toggleSidebar, setToggleSidebar] = useState(false);
   // functions for changing the states from components
-  const pathname = usePathname()
+  const pathname = usePathname();
   if (isWindowAvailable()) document.documentElement.dir = 'rtl';
   const { onOpen } = useDisclosure();
   return (
